@@ -30,7 +30,7 @@
     "dev": "tsc -w --incremental",
     "lint": "eslint --ext .ts src/**",
     "format": "prettier --write .",
-    "prebuild": "rimraf dist && npm run lint && shx cp ../../readme.md ./readme.md"
+    "prebuild": "shx rm -rf dist && npm run lint && shx cp ../../readme.md ./readme.md"
   },
   "dependencies": {
     "@rollup/pluginutils": "^4.1.1",
