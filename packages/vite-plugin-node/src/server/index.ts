@@ -68,7 +68,7 @@ const getRequestHandler = (
 /**
  * Context keeping global state
  */
-const context: { [key: string]: any } = {};
+const context: Record<string, any> = {};
 
 export const createMiddleware = async (
   server: ViteDevServer,
