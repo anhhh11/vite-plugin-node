@@ -24,6 +24,7 @@
     "readme.md"
   ],
   "scripts": {
+    "prepare": "npm run build",
     "build-dist": "tsc",
     "build": "run-s prebuild build-dist",
     "dev": "tsc -w --incremental",
