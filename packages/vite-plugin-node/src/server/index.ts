@@ -65,6 +65,11 @@ const getRequestHandler = (
   return SUPPORTED_FRAMEWORKS[handler] as RequestAdapter;
 };
 
+/**
+ * Context keeping global state
+ */
+const context: { [key: string]: any } = {};
+
 export const createMiddleware = async (
   server: ViteDevServer,
 ): Promise<Connect.HandleFunction> => {
@@ -92,7 +97,9 @@ export const createMiddleware = async (
     } else {
       // some app may be created with a function returning a promise
       app = await app;
+      (req as any).context = context;
       await requestHandler({ app, server, req, res, next });
+      delete (req as any).context;
     }
   };
 };
