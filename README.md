@@ -143,7 +143,7 @@ export default defineConfig({
   plugins: [
     ...VitePluginNode({
       adapter({ app, server, req, res, next }) {
-        app(res, res);
+        app(req, res);
       },
       appPath: './app.ts'
     })
